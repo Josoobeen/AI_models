@@ -1,5 +1,6 @@
 import numpy as np
-
+from Loss_function import loss_function
+from Optimizer import Optimizer
 
 class Linear():
     def __init__(self, a, b):
@@ -29,43 +30,6 @@ class Linear():
     
     def show_bias(self):
         return self.bias
-    
-    
-
-class loss_function():
-    def __init__(self, function):
-        self.loss_function = function
-        
-    def loss_out(self, y, w, b):
-        if self.loss_function == "mse":
-            loss = 2 * np.sum((w * x - y) ** 2) / len(y) # loss of model 
-            
-            w_loss_prime = 2 * np.sum((w * x - (y - b)) * x) / len(y) #differentiation w
-            b_loss_prime = 2 * np.sum((w * x - (y - b))) / len(y) # differentiation b
-            
-        else:
-            raise "Choose proper loss function"
-            
-        return loss, w_loss_prime, b_loss_prime
-            
-class Optimizer():
-    def __init__(self, optimizer, learning_rate = 0.01):
-        self.optimizer = optimizer
-        self.learning_rate = learning_rate
-        
-    def optimizer_out(self, w_loss_prime, b_loss_prime, w, b):
-        if self.optimizer == "gradient_descent":
-
-            gradient_w = w_loss_prime
-            gradient_b = b_loss_prime
-            
-            w -= self.learning_rate * gradient_w
-            b -= self.learning_rate * gradient_b
-                
-        else:
-            raise "Choose proper optimizer"
-            
-        return w, b
 
 
 
