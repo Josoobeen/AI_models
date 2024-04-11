@@ -13,6 +13,7 @@ I use Mean Squared Error, witch means, loss is (y - pred_y) ^ 2.
 I use Gradient descent, with means, differentiation weights, bias.
 
 w calculate => (w*x - (y - b))^2/dw => w_loss_prime = 2 * sum((w * x - (y - b)) * x) / n
+
 b calculate => (w*x - (y - b))^2/db => b_loss_prime = 2 * sum((w * x - (y - b))) / n
 
 Because I use Gradient descent, if x cannot be bigger for train. x is better to be under 1.
