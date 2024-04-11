@@ -30,17 +30,3 @@ class Linear():
     
     def show_bias(self):
         return self.bias
-
-
-
-dense = Linear(0.01, 0.01)
-x = np.arange(1, 100) # training data
-y = 3 * x + 1    # training data
-
-for i in range(5000):
-    dense.train(x, y)
-print(dense.show_weights(), dense.show_bias())
-
-for i in range(5000):
-    dense.train(x, y)
-print(dense.show_weights(), dense.show_bias())
